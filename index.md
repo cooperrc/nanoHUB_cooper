@@ -79,15 +79,14 @@ def implicit_heun_time_numpy(f, y, dt):
 def heun_step(state,rhs,dt,etol=0.000001,maxiters = 100):
     '''Update a state to the next time increment 
 	using the implicit Heun's method.'''
-    e=1
-    eps=np.finfo('float64').eps
+    error = 1
     next_state = state + rhs(state)*dt
     ################### New iterative correction ###############
     for n in range(0,maxiters):
         next_state_old = next_state
         next_state = state + (rhs(state)+rhs(next_state))/2*dt
-        e=np.sum(np.abs(next_state-next_state_old)/np.abs(next_state+eps))
-        if e<etol:
+        error = np.sum(np.abs((next_state-next_state_old)/next_state)
+        if error < etol:
             break
     ############### end of iterative correction ###############
     return next_state
@@ -108,7 +107,7 @@ def heun_step(state,rhs,dt,etol=0.000001,maxiters = 100):
   my Creative Commons Licensed information
  
 # Can a student own AI-generated work?
-
+ 
 ## Student is performing prompt-engineering
 
 - Comparing course content to AI content

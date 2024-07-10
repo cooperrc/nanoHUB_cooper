@@ -239,18 +239,17 @@ def implicit_heun_time_numpy(f, y, dt):
 class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> heun_step(state,rhs,dt,etol<span class="op">=</span><span class="fl">0.000001</span>,maxiters <span class="op">=</span> <span class="dv">100</span>):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&#39;&#39;&#39;Update a state to the next time increment </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    using the implicit Heun&#39;s method.&#39;&#39;&#39;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    e<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    eps<span class="op">=</span>np.finfo(<span class="st">&#39;float64&#39;</span>).eps</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    next_state <span class="op">=</span> state <span class="op">+</span> rhs(state)<span class="op">*</span>dt</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">################### New iterative correction ###############</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,maxiters):</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        next_state_old <span class="op">=</span> next_state</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> state <span class="op">+</span> (rhs(state)<span class="op">+</span>rhs(next_state))<span class="op">/</span><span class="dv">2</span><span class="op">*</span>dt</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        e<span class="op">=</span>np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(next_state<span class="op">-</span>next_state_old)<span class="op">/</span>np.<span class="bu">abs</span>(next_state<span class="op">+</span>eps))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> e<span class="op">&lt;</span>etol:</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">############### end of iterative correction ###############</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> next_state</span></code></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    error <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    next_state <span class="op">=</span> state <span class="op">+</span> rhs(state)<span class="op">*</span>dt</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">################### New iterative correction ###############</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,maxiters):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        next_state_old <span class="op">=</span> next_state</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> state <span class="op">+</span> (rhs(state)<span class="op">+</span>rhs(next_state))<span class="op">/</span><span class="dv">2</span><span class="op">*</span>dt</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        error <span class="op">=</span> np.<span class="bu">sum</span>(np.<span class="bu">abs</span>((next_state<span class="op">-</span>next_state_old)<span class="op">/</span>next_state)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> error <span class="op">&lt;</span> etol:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">############### end of iterative correction ###############</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> next_state</span></code></pre></div>
 </td>
 </tr>
 </table>
