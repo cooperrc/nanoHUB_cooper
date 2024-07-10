@@ -215,3 +215,12 @@ art)](https://www.copyright.gov/docs/zarya-of-the-dawn.pdf)
     - Start simple and build confidence in your
       students/mentees/coworkers
     - Students need to find their voice and build experience 
+
+# Thanks!
+
+## [cooperrc.github.io](https://cooperrc.github.io)
+
+<iframe src="https://cooperrc.github.io" width="100%" height="300" style="border:1px
+solid black;">
+</iframe>
+
