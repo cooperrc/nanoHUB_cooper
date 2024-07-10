@@ -143,7 +143,7 @@ case](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Macaca_nigra_sel
 ![Zarya of the Dawn copyrighted a graphic novel with AI
 images](https://duet-cdn.vox-cdn.com/thumbor/0x0:1228x831/750x500/filters:focal(614x416:615x417):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/24453891/zarya_of_the_dawn.jpg)
 
-## Great except...
+# Great except...
 - You **can** copyright work that involves the use of AI, but you have
   to detail your contribution
     - [copyright guidance on AI
@@ -180,20 +180,21 @@ art)](https://www.copyright.gov/docs/zarya-of-the-dawn.pdf)
       
 # Quick Intro: Term-frequency Inverse-Document Frequency
 
-![Simplified version of document comparison for three sentences.](./simple_tf-idf.png)
 
-|   | DOCUMENT             | LOWERCASE            | CLEANING             | TOKENIZATION                      | STOP-WORDS                 | STEMMING                 |     frog |     high |     jump |    turtl |    COSIM |
-|--:|----------------------|----------------------|----------------------|-----------------------------------|----------------------------|--------------------------|---------:|---------:|---------:|---------:|---------:|
-| 0 | The frog jumped      | the frog jumped      | the frog jumped      | ['the', 'frog', 'jumped']         | ['frog', 'jumped']         | ['frog', 'jump']         | 0.789807 |        0 | 0.613356 |        0 |        1 |
-| 1 | The frog jumped high | the frog jumped high | the frog jumped high | ['the', 'frog', 'jumped', 'high'] | ['frog', 'jumped', 'high'] | ['frog', 'jump', 'high'] | 0.547832 | 0.720333 | 0.425441 |        0 | 0.693628 |
-| 2 | The turtle jumped    | the turtle jumped    | the turtle jumped    | ['the', 'turtle', 'jumped']       | ['turtle', 'jumped']       | ['turtl', 'jump']        |        0 |        0 | 0.508542 | 0.861037 | 0.311917 |
+|   | DOCUMENT             | TOKENIZATION                      | STOP-WORDS                 | STEMMING                 |     frog |     high |     jump |    turtl |    COSIM |
+|--:|----------------------|-----------------------------------|----------------------------|--------------------------|---------:|---------:|---------:|---------:|---------:|
+| 0 | The frog jumped      | ['the', 'frog', 'jumped']         | ['frog', 'jumped']         | ['frog', 'jump']         | 0.789807 |        0 | 0.613356 |        0 |        1 |
+| 1 | The frog jumped high | ['the', 'frog', 'jumped', 'high'] | ['frog', 'jumped', 'high'] | ['frog', 'jump', 'high'] | 0.547832 | 0.720333 | 0.425441 |        0 | 0.693628 |
+| 2 | The turtle jumped    | ['the', 'turtle', 'jumped']       | ['turtle', 'jumped']       | ['turtl', 'jump']        |        0 |        0 | 0.508542 | 0.861037 | 0.311917 |
+
+![Simplified version of document comparison for three sentences.](./simple_tf-idf.png)
 
 # Compare brushing teeth exercise acrross 21 students
 
 ![Cosine similarity score compared across 21 AI-generated texts, 21 human-editted texts, and cross-comparisons.](./student_writing.svg)
  
 # Interviews across 30 students: uses and concerns with AI
-## Most students find AI useful, but worry about cheating
+### Most students find AI useful, but worry about cheating
  
 ![30 interviews with students summarizing their feelings towards
  AI-generated assignments](./thoughts_on_ai.svg)
