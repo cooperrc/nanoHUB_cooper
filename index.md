@@ -220,7 +220,5 @@ art)](https://www.copyright.gov/docs/zarya-of-the-dawn.pdf)
 
 ## [cooperrc.github.io](https://cooperrc.github.io)
 
-<iframe src="https://cooperrc.github.io" width="100%" height="300" style="border:1px
-solid black;">
-</iframe>
+![Contact Ryan C. Cooper](./thanks.svg)
 
