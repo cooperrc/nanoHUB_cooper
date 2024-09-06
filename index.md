@@ -1,6 +1,6 @@
-% Teaching and Learning Scientific Computing in the age of ChatGPT
+% Open Educational Resource for Scientific Computing
 % Ryan C. Cooper
-% July 10, 2024
+% September 10, 2024
 
 # Who is Ryan Cooper
 ## [cooperrc.github.io](https://cooperrc.github.io)
@@ -37,185 +37,70 @@ review](https://cooperrc.github.io/_images/learning-journey.svg)
 </tr>
 </table>
 
-# Identify the challenge: strange solutions in code
+# Identify the challenge: 
+## Students wanted answers to difficult engineering problems
 
-- Asked to **analyze** convergence of an implicit integration method
-- Given examples in readings
-- Students submitted brand new, formal solutions
-- Started using `fsolve` for the implicit convergence check
+![Students identify interesting problems for engineers](./student_thinking.svg)
 
-# Strange code submissions
+# How do I prepare students for difficult problems:
+## build computational thinking and analysis
 
-<table>
-<tr>
-<th>Submission</th>
-<th>Given function</th>
-</tr>
-<tr>
-<td>
-<pre>
-import numpy as np
-from scipy.optimize import fsolve
+- Read and interpret code
+- identify sources of error in a model
+- Visualize data
+- Use computer to integrate differential equations
+- Use computer to solve sets of equations
 
-def implicit_heun_time_numpy(f, y, dt):
-    """
-    Approximates the solution of the differential equation 
-	dy/dt = f(t, y) using Implicit Heun's method.
-    """
-	predictor = y + dt * f(t, y)
-	
-	# Define the implicit function to be solved using fsolve
-	implicit_func = lambda y_next: y + (dt / 2) * (f(t, y) + f(t + dt, y_next)) - y_next
-	
-	# Solve the implicit function to get the corrector step using fsolve
--?> y_corrected = fsolve(implicit_func, predictor)[0]
-	
-    return y_corrected
-</pre>
-</td>
-<td>
+# Needed Open Educational Resources
 
-```python
-def heun_step(state,rhs,dt,etol=0.000001,maxiters = 100):
-    '''Update a state to the next time increment 
-	using the implicit Heun's method.'''
-    error = 1
-    next_state = state + rhs(state)*dt
-    ################### New iterative correction ###############
-    for n in range(0,maxiters):
-        next_state_old = next_state
-        next_state = state + (rhs(state)+rhs(next_state))/2*dt
-        error = np.sum(np.abs((next_state-next_state_old)/next_state)
-        if error < etol:
-            break
-    ############### end of iterative correction ###############
-    return next_state
-```
+Myself and students:
 
-</td>
-</tr>
-</table>
+- have access to source code
+- can publish and redistribute
+- build working community around ideas and lessons
+- continually improve resources
 
-# ChatGPT was tutoring the submissions
+# Toolset:
+## [Jupyter notebooks and Jupyter-Book](https://cooperrc.github.io/computational-mechanics)
 
-![Drake refusing to read and preferring chatGPT](./drake_reading.jpg)
+![Jupyter
+logo](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1767px-Jupyter_logo.svg.png)
+![Jupyter-Book
+logo](https://jupyterbook.org/en/stable/_images/logo-square.svg)
 
-## Is this cheating?
-- Question asked for convergence, not brand new code
-- Should have been cited, but there's no precedent for AI references
-- Students are reading, researching, and applying information, just not
-  my Creative Commons Licensed information
- 
-# Can a student own AI-generated work?
- 
-## Student is performing prompt-engineering
+# Resources there, but...
 
-- Comparing course content to AI content
-- Applying a solution
-- Analyzing information
-- Reflecting on quality and validity of the work
+- Spending time troubleshooting installations
+- Errors from Python environments could be code or environment
+- Average student doesn't need in-depth IT knowledge of environments and
+  OS platforms
+- Deployed Docker containers, which solved some problems, but now IT
+  load was on me
+- Docker containers hosted on site so access limited to current students
+  
+# Enter [nanoHUB/compmech](https://nanohub.org/tools/compmech)
 
-## Only missing piece is **building** the solution (if its completely AI-generated code)
+- Jupyter environment hosted on servers with professional staff
+- accounts not linked to University credentials (students always have access)
+- students+instructors all have the same environments and tools
+- Focus troubleshooting on computational thinking and building solutions
 
-# Who owns a monkey selfie?
+# Accessing [nanoHUB/compmech](https://nanohub.org/tools/compmech)
 
-![Monkey selfie that sparked the Slater-vs-Naruto
-case](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Macaca_nigra_self-portrait_large.jpg/440px-Macaca_nigra_self-portrait_large.jpg)
-
-# How does Naruto relate to ChatGPT?
-- The macaque took the picture
-- A human cannot copyright something they didn't create
-- Prompt engineering is equivalent to owning the camera and setting it
-  up
-    - You cannot copyright anything created by AI
-    - AI work is by default in the public domain
-
-# Academic misconduct and Intellectual property
-
-- [Plagiarism](https://www.law.cornell.edu/wex/plagiarism#:~:text=Plagiarism%20is%20the%20act%20of,United%20States%20in%20most%20situations.) is generally taking an idea or quote without
-  reference
-- If your academic work is not plagiarized, you _should_ be able to
-  publish your work
-- Publishing usually involves copyright
-
-# Solution: If you can't copyright the work, you can't submit as your own
-
-![Zarya of the Dawn copyrighted a graphic novel with AI
-images](https://duet-cdn.vox-cdn.com/thumbor/0x0:1228x831/750x500/filters:focal(614x416:615x417):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/24453891/zarya_of_the_dawn.jpg)
-
-# Great except...
-- You **can** copyright work that involves the use of AI, but you have
-  to detail your contribution
-    - [copyright guidance on AI
-art](https://www.federalregister.gov/documents/2023/03/16/2023-05321/copyright-registration-guidance-works-containing-material-generated-by-artificial-intelligence#p-52)
-    - [Thaler's creativity machine: AI generative art not
-copyrightable](https://ecf.dcd.uscourts.gov/cgi-bin/show_public_doc?2022cv1564-24)
-    - [Lindberg: Zarya of the Dawn (AI generated comic
-art)](https://www.copyright.gov/docs/zarya-of-the-dawn.pdf)
-
-# New Solution: Ask students to use AI and justify contributions
-
-- Teaching goal _is not_ **build** the solution _from scratch_
-- Teaching goals are 
-    - **build** with existing and new tools
-    - **compare** solutions
-    - **apply** a new tool and technique
-    - **reflect** on the quality of your improvements and justify your
-      contributions
-
-# Technical writing assignment to discuss ethical use of AI
-
-## [Assignment](https://cooper-summer.github.io/AI-lesson/README.html):
-  - Use prompt engineering to generate instructions on brushing teeth
-  - Edit the instructions
-  - Compare your edited document to the AI-generated document with
-    cosine similarity of term-frequency inverse document frequency
-    (TF-IDF)
-
-## Post-process
-  - Compare all 42 documents
-  - Create (TF-IDF) vector for all AI and student writing
-  - Calculate cosine similarity across all 21 AI and student writing
-    
-      
-# Quick Intro: Term-frequency Inverse-Document Frequency
+- Students create <https://nanohub.org> account
+- Access to [compmech](https://nanohub.org/tools/compmech) tool is
+  available through syllabus, course website, and nanoHUB website
+- All changes are saved in the nanoHUB server
+- Jupyter notebooks make  web, coding, and resources accessible and
+  transferable
+  
+  
 
 
-|   | DOCUMENT             | TOKENIZATION                      | STOP-WORDS                 | STEMMING                 |     frog |     high |     jump |    turtl |    COSIM |
-|--:|----------------------|-----------------------------------|----------------------------|--------------------------|---------:|---------:|---------:|---------:|---------:|
-| 0 | The frog jumped      | ['the', 'frog', 'jumped']         | ['frog', 'jumped']         | ['frog', 'jump']         | 0.789807 |        0 | 0.613356 |        0 |        1 |
-| 1 | The frog jumped high | ['the', 'frog', 'jumped', 'high'] | ['frog', 'jumped', 'high'] | ['frog', 'jump', 'high'] | 0.547832 | 0.720333 | 0.425441 |        0 | 0.693628 |
-| 2 | The turtle jumped    | ['the', 'turtle', 'jumped']       | ['turtle', 'jumped']       | ['turtl', 'jump']        |        0 |        0 | 0.508542 | 0.861037 | 0.311917 |
 
-![Simplified version of document comparison for three sentences.](./simple_tf-idf.png)
-
-# Compare brushing teeth exercise acrross 21 students
-
-![Cosine similarity score compared across 21 AI-generated texts, 21 human-editted texts, and cross-comparisons.](./student_writing.svg)
- 
-# Interviews across 30 students: uses and concerns with AI
-### Most students find AI useful, but worry about cheating
- 
-![30 interviews with students summarizing their feelings towards
- AI-generated assignments](./thoughts_on_ai.svg)
- 
 # Conclusions
 
-- People are excited and scared of AI
-- Great time to discuss ethics and ownership **with students**
-- We're all grappling with what academic integrity and ownership means
-- Set ground rules with your community
-    - Detailed examples and discussions
-    - Examples that show grey area between plagiarism and solo
-      authorship
-- Your role as an expert in your field is now **more important**
-    - newcomers need examples and guidance
-    - Show people how to filter, research, and revise AI outputs
-    - Students become more hesitant to edit and critique when the AI
-      output "sounds right"
-    - Start simple and build confidence in your
-      students/mentees/coworkers
-    - Students need to find their voice and build experience 
+- 
 
 # Thanks!
 

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Ryan C. Cooper">
-  <meta name="dcterms.date" content="2024-07-10">
-  <title>Teaching and Learning Scientific Computing in the age of ChatGPT</title>
+  <meta name="dcterms.date" content="2024-09-10">
+  <title>Open Educational Resource for Scientific Computing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,70 +30,6 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { color: #008000; } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { color: #008000; font-weight: bold; } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/white.css" id="theme">
   <style>
@@ -132,10 +68,10 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Teaching and Learning Scientific Computing in the
-age of ChatGPT</h1>
+  <h1 class="title">Open Educational Resource for Scientific
+Computing</h1>
   <p class="author">Ryan C. Cooper</p>
-  <p class="date">July 10, 2024</p>
+  <p class="date">September 10, 2024</p>
 </section>
 
 <section id="who-is-ryan-cooper" class="slide level1">
@@ -189,305 +125,51 @@ journey</figcaption>
 </tr>
 </table>
 </section>
-<section id="identify-the-challenge-strange-solutions-in-code"
-class="slide level1">
-<h1>Identify the challenge: strange solutions in code</h1>
-<ul>
-<li>Asked to <strong>analyze</strong> convergence of an implicit
-integration method</li>
-<li>Given examples in readings</li>
-<li>Students submitted brand new, formal solutions</li>
-<li>Started using <code>fsolve</code> for the implicit convergence
-check</li>
-</ul>
-</section>
-<section id="strange-code-submissions" class="slide level1">
-<h1>Strange code submissions</h1>
-<table>
-<tr>
-<th>
-Submission
-</th>
-<th>
-Given function
-</th>
-</tr>
-<tr>
-<td>
-<pre>
-import numpy as np
-from scipy.optimize import fsolve
-
-def implicit_heun_time_numpy(f, y, dt):
-    """
-    Approximates the solution of the differential equation 
-    dy/dt = f(t, y) using Implicit Heun's method.
-    """
-    predictor = y + dt * f(t, y)
-    
-    # Define the implicit function to be solved using fsolve
-    implicit_func = lambda y_next: y + (dt / 2) * (f(t, y) + f(t + dt, y_next)) - y_next
-    
-    # Solve the implicit function to get the corrector step using fsolve
--?> y_corrected = fsolve(implicit_func, predictor)[0]
-    
-    return y_corrected
-</pre>
-</td>
-<td>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> heun_step(state,rhs,dt,etol<span class="op">=</span><span class="fl">0.000001</span>,maxiters <span class="op">=</span> <span class="dv">100</span>):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&#39;&#39;&#39;Update a state to the next time increment </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    using the implicit Heun&#39;s method.&#39;&#39;&#39;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    error <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    next_state <span class="op">=</span> state <span class="op">+</span> rhs(state)<span class="op">*</span>dt</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">################### New iterative correction ###############</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,maxiters):</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        next_state_old <span class="op">=</span> next_state</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        next_state <span class="op">=</span> state <span class="op">+</span> (rhs(state)<span class="op">+</span>rhs(next_state))<span class="op">/</span><span class="dv">2</span><span class="op">*</span>dt</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        error <span class="op">=</span> np.<span class="bu">sum</span>(np.<span class="bu">abs</span>((next_state<span class="op">-</span>next_state_old)<span class="op">/</span>next_state)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> error <span class="op">&lt;</span> etol:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">############### end of iterative correction ###############</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> next_state</span></code></pre></div>
-</td>
-</tr>
-</table>
-</section>
-<section id="chatgpt-was-tutoring-the-submissions" class="slide level1">
-<h1>ChatGPT was tutoring the submissions</h1>
-<figure>
-<img data-src="./drake_reading.jpg"
-alt="Drake refusing to read and preferring chatGPT" />
-<figcaption aria-hidden="true">Drake refusing to read and preferring
-chatGPT</figcaption>
-</figure>
-<h2 id="is-this-cheating">Is this cheating?</h2>
-<ul>
-<li>Question asked for convergence, not brand new code</li>
-<li>Should have been cited, but there’s no precedent for AI
-references</li>
-<li>Students are reading, researching, and applying information, just
-not my Creative Commons Licensed information</li>
-</ul>
-</section>
-<section id="can-a-student-own-ai-generated-work" class="slide level1">
-<h1>Can a student own AI-generated work?</h1>
-<h2 id="student-is-performing-prompt-engineering">Student is performing
-prompt-engineering</h2>
-<ul>
-<li>Comparing course content to AI content</li>
-<li>Applying a solution</li>
-<li>Analyzing information</li>
-<li>Reflecting on quality and validity of the work</li>
-</ul>
+<section id="identify-the-challenge" class="slide level1">
+<h1>Identify the challenge:</h1>
 <h2
-id="only-missing-piece-is-building-the-solution-if-its-completely-ai-generated-code">Only
-missing piece is <strong>building</strong> the solution (if its
-completely AI-generated code)</h2>
-</section>
-<section id="who-owns-a-monkey-selfie" class="slide level1">
-<h1>Who owns a monkey selfie?</h1>
+id="students-wanted-answers-to-difficult-engineering-problems">Students
+wanted answers to difficult engineering problems</h2>
 <figure>
-<img
-data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Macaca_nigra_self-portrait_large.jpg/440px-Macaca_nigra_self-portrait_large.jpg"
-alt="Monkey selfie that sparked the Slater-vs-Naruto case" />
-<figcaption aria-hidden="true">Monkey selfie that sparked the
-Slater-vs-Naruto case</figcaption>
+<img data-src="./student_thinking.svg"
+alt="Students identify interesting problems for engineers" />
+<figcaption aria-hidden="true">Students identify interesting problems
+for engineers</figcaption>
 </figure>
 </section>
-<section id="how-does-naruto-relate-to-chatgpt" class="slide level1">
-<h1>How does Naruto relate to ChatGPT?</h1>
+<section id="how-do-i-prepare-students-for-difficult-problems"
+class="slide level1">
+<h1>How do I prepare students for difficult problems:</h1>
+<h2 id="build-computational-thinking-and-analysis">build computational
+thinking and analysis</h2>
 <ul>
-<li>The macaque took the picture</li>
-<li>A human cannot copyright something they didn’t create</li>
-<li>Prompt engineering is equivalent to owning the camera and setting it
-up
-<ul>
-<li>You cannot copyright anything created by AI</li>
-<li>AI work is by default in the public domain</li>
-</ul></li>
+<li>Read and interpret code</li>
+<li>identify sources of error in a model</li>
+<li>Visualize data</li>
+<li>Use computer to integrate differential equations</li>
+<li>Use computer to solve sets of equations</li>
 </ul>
 </section>
-<section id="academic-misconduct-and-intellectual-property"
-class="slide level1">
-<h1>Academic misconduct and Intellectual property</h1>
+<section id="needed-open-educational-resources" class="slide level1">
+<h1>Needed Open Educational Resources</h1>
+<p>Myself and students:</p>
 <ul>
-<li><a
-href="https://www.law.cornell.edu/wex/plagiarism#:~:text=Plagiarism%20is%20the%20act%20of,United%20States%20in%20most%20situations.">Plagiarism</a>
-is generally taking an idea or quote without reference</li>
-<li>If your academic work is not plagiarized, you <em>should</em> be
-able to publish your work</li>
-<li>Publishing usually involves copyright</li>
+<li>have access to source code</li>
+<li>can publish and redistribute</li>
+<li>build working community around ideas and lessons</li>
+<li>continually improve resources</li>
 </ul>
 </section>
-<section
-id="solution-if-you-cant-copyright-the-work-you-cant-submit-as-your-own"
-class="slide level1">
-<h1>Solution: If you can’t copyright the work, you can’t submit as your
-own</h1>
-<figure>
-<img
-data-src="https://duet-cdn.vox-cdn.com/thumbor/0x0:1228x831/750x500/filters:focal(614x416:615x417):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/24453891/zarya_of_the_dawn.jpg"
-alt="Zarya of the Dawn copyrighted a graphic novel with AI images" />
-<figcaption aria-hidden="true">Zarya of the Dawn copyrighted a graphic
-novel with AI images</figcaption>
-</figure>
-</section>
-<section id="great-except" class="slide level1">
-<h1>Great except…</h1>
-<ul>
-<li>You <strong>can</strong> copyright work that involves the use of AI,
-but you have to detail your contribution
-<ul>
-<li><a
-href="https://www.federalregister.gov/documents/2023/03/16/2023-05321/copyright-registration-guidance-works-containing-material-generated-by-artificial-intelligence#p-52">copyright
-guidance on AI art</a></li>
-<li><a
-href="https://ecf.dcd.uscourts.gov/cgi-bin/show_public_doc?2022cv1564-24">Thaler’s
-creativity machine: AI generative art not copyrightable</a></li>
-<li><a
-href="https://www.copyright.gov/docs/zarya-of-the-dawn.pdf">Lindberg:
-Zarya of the Dawn (AI generated comic art)</a></li>
-</ul></li>
-</ul>
-</section>
-<section
-id="new-solution-ask-students-to-use-ai-and-justify-contributions"
-class="slide level1">
-<h1>New Solution: Ask students to use AI and justify contributions</h1>
-<ul>
-<li>Teaching goal <em>is not</em> <strong>build</strong> the solution
-<em>from scratch</em></li>
-<li>Teaching goals are
-<ul>
-<li><strong>build</strong> with existing and new tools</li>
-<li><strong>compare</strong> solutions</li>
-<li><strong>apply</strong> a new tool and technique</li>
-<li><strong>reflect</strong> on the quality of your improvements and
-justify your contributions</li>
-</ul></li>
-</ul>
-</section>
-<section id="technical-writing-assignment-to-discuss-ethical-use-of-ai"
-class="slide level1">
-<h1>Technical writing assignment to discuss ethical use of AI</h1>
-<h2 id="assignment"><a
-href="https://cooper-summer.github.io/AI-lesson/README.html">Assignment</a>:</h2>
-<ul>
-<li>Use prompt engineering to generate instructions on brushing
-teeth</li>
-<li>Edit the instructions</li>
-<li>Compare your edited document to the AI-generated document with
-cosine similarity of term-frequency inverse document frequency
-(TF-IDF)</li>
-</ul>
-<h2 id="post-process">Post-process</h2>
-<ul>
-<li>Compare all 42 documents</li>
-<li>Create (TF-IDF) vector for all AI and student writing</li>
-<li>Calculate cosine similarity across all 21 AI and student
-writing</li>
-</ul>
-</section>
-<section id="quick-intro-term-frequency-inverse-document-frequency"
-class="slide level1">
-<h1>Quick Intro: Term-frequency Inverse-Document Frequency</h1>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 13%" />
-<col style="width: 21%" />
-<col style="width: 17%" />
-<col style="width: 15%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th>DOCUMENT</th>
-<th>TOKENIZATION</th>
-<th>STOP-WORDS</th>
-<th>STEMMING</th>
-<th style="text-align: right;">frog</th>
-<th style="text-align: right;">high</th>
-<th style="text-align: right;">jump</th>
-<th style="text-align: right;">turtl</th>
-<th style="text-align: right;">COSIM</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td>The frog jumped</td>
-<td>[‘the’, ‘frog’, ‘jumped’]</td>
-<td>[‘frog’, ‘jumped’]</td>
-<td>[‘frog’, ‘jump’]</td>
-<td style="text-align: right;">0.789807</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.613356</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td>The frog jumped high</td>
-<td>[‘the’, ‘frog’, ‘jumped’, ‘high’]</td>
-<td>[‘frog’, ‘jumped’, ‘high’]</td>
-<td>[‘frog’, ‘jump’, ‘high’]</td>
-<td style="text-align: right;">0.547832</td>
-<td style="text-align: right;">0.720333</td>
-<td style="text-align: right;">0.425441</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.693628</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td>The turtle jumped</td>
-<td>[‘the’, ‘turtle’, ‘jumped’]</td>
-<td>[‘turtle’, ‘jumped’]</td>
-<td>[‘turtl’, ‘jump’]</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.508542</td>
-<td style="text-align: right;">0.861037</td>
-<td style="text-align: right;">0.311917</td>
-</tr>
-</tbody>
-</table>
-<figure>
-<img data-src="./simple_tf-idf.png"
-alt="Simplified version of document comparison for three sentences." />
-<figcaption aria-hidden="true">Simplified version of document comparison
-for three sentences.</figcaption>
-</figure>
-</section>
-<section id="compare-brushing-teeth-exercise-acrross-21-students"
-class="slide level1">
-<h1>Compare brushing teeth exercise acrross 21 students</h1>
-<figure>
-<img data-src="./student_writing.svg"
-alt="Cosine similarity score compared across 21 AI-generated texts, 21 human-editted texts, and cross-comparisons." />
-<figcaption aria-hidden="true">Cosine similarity score compared across
-21 AI-generated texts, 21 human-editted texts, and
-cross-comparisons.</figcaption>
-</figure>
-</section>
-<section id="interviews-across-30-students-uses-and-concerns-with-ai"
-class="slide level1">
-<h1>Interviews across 30 students: uses and concerns with AI</h1>
-<h3 id="most-students-find-ai-useful-but-worry-about-cheating">Most
-students find AI useful, but worry about cheating</h3>
-<figure>
-<img data-src="./thoughts_on_ai.svg"
-alt="30 interviews with students summarizing their feelings towards AI-generated assignments" />
-<figcaption aria-hidden="true">30 interviews with students summarizing
-their feelings towards AI-generated assignments</figcaption>
-</figure>
+<section id="toolset" class="slide level1">
+<h1>Toolset:</h1>
+<h2 id="jupyter-notebooks-and-jupyter-book"><a
+href="https://cooperrc.github.io/computational-mechanics">Jupyter
+notebooks and Jupyter-Book</a></h2>
+<p><img
+data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1767px-Jupyter_logo.svg.png"
+alt="Jupyter logo" /> <img
+data-src="https://jupyterbook.org/en/stable/_images/logo-square.svg"
+alt="Jupyter-Book logo" /></p>
 </section>
 <section id="conclusions" class="slide level1">
 <h1>Conclusions</h1>
