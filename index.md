@@ -9,11 +9,33 @@
 solid black;">
 </iframe>
 
+# Connecting is key to learning
+- [Connections through lived
+  experiences](https://www.routledge.com/The-Art-of-Changing-the-Brain-Enriching-the-Practice-of-Teaching-by-Exploring-the-Biology-of-Learning/Zull/p/book/9781579220549)
+  - create new neuron paths:
+  - reinforcing learning
+- Education is experience
+
+![Education is not a preparation for life; it is life itself - John
+Dewey](https://pbs.twimg.com/media/Be-noQVIQAA1BfZ?format=jpg&name=small)
+
 # Teaching as a learning journey
 
 ![Cycle of learning journey, review, identify problem, try new things,
 get knowledge, build something, share it,
 review](https://cooperrc.github.io/_images/learning-journey.svg)
+
+# Building lived experience connections
+
+- Instructors can scaffold connecting exercises
+- Good practice for [newcomers to your field](https://firstliteracy.org/wp-content/uploads/2015/07/How-Learning-Works.pdf)
+- We can't connect material to individuals' [lived experiences](https://www.taylorfrancis.com/books/mono/10.4324/9781003447313/teach-students-learn-stephanie-mcguire-saundra-yancy-mcguire-thomas-angelo)
+- OER increases student [Perifanou and Economides 2022](https://doi.org/10.1080/02680513.2022.2033114)
+  - autonomy
+  - experimentation
+  - enthusiasm
+  - collaboration
+- Key components in learning journey experience
 
 # Teaching Goals: Bloom's taxonomy
 
