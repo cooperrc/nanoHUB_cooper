@@ -77,10 +77,10 @@ review](https://cooperrc.github.io/_images/learning-journey.svg)
 
 Myself and students:
 
-- have access to source code
-- can publish and redistribute
+- Autonomy in material access redistribution
+- Students experiment with resources and ideas
 - build working community around ideas and lessons
-- continually improve resources
+- continually improve resources 
 
 # Toolset:
 ## [Jupyter notebooks and Jupyter-Book](https://cooperrc.github.io/computational-mechanics)
