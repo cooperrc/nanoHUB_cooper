@@ -73,6 +73,14 @@ review](https://cooperrc.github.io/_images/learning-journey.svg)
 - Use computer to integrate differential equations
 - Use computer to solve sets of equations
 
+# Avoid test-and-forget
+
+<iframe src="https://giphy.com/embed/2P1GgEM5OpH6E" width="480"
+height="278" style="" frameBorder="0" class="giphy-embed"
+allowFullScreen></iframe><p><a
+href="https://giphy.com/gifs/school-the-simpsons-2P1GgEM5OpH6E">via
+GIPHY</a></p>
+
 # Needed Open Educational Resources
 
 Myself and students:
@@ -121,10 +129,11 @@ logo](https://jupyterbook.org/en/stable/_images/logo-square.svg)
 - Using and maintaining OER for courses:
   - increases student autonomy (>700 forks to date)
   - encourages experimentation and building
-  - increases community involvement (>800 discussion views and hundreds
-    of view hours on YouTube)
+  - increases community involvement 
+    - >800 discussion views this year 
+    - hundreds of view hours on YouTube
 - Any of these tools and resources can be revised+improved+distributed
-  by _any_ class
+  by _any_ instructor or student
 - If any of this resonates, steal the tools and help to build a bigger
   OER community 
 
