@@ -116,13 +116,17 @@ logo](https://jupyterbook.org/en/stable/_images/logo-square.svg)
 - Jupyter notebooks make  web, coding, and resources accessible and
   transferable
   
-  
-
-
-
 # Conclusions
 
-- 
+- Using and maintaining OER for courses:
+  - increases student autonomy (>700 forks to date)
+  - encourages experimentation and building
+  - increases community involvement (>800 discussion views and hundreds
+    of view hours on YouTube)
+- Any of these tools and resources can be revised+improved+distributed
+  by _any_ class
+- If any of this resonates, steal the tools and help to build a bigger
+  OER community 
 
 # Thanks!
 
